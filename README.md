@@ -62,22 +62,39 @@ MobileBERT 모델을 파인튜닝(fine-tuning)하여 높은 정확도의 감성 
 
 ## 📊 시각화 결과 (Visualizations)
 
-
 ### 🎯 F1-score per Class
 <p align="center">
   <img src="classification_metrics.png" alt="F1 Score per Class" width="65%">
 </p>
+
+<p align="center">
+  <em>모델이 예측한 클래스별 F1 점수입니다.  
+  긍정(1) 클래스가 부정(0)보다 높은 F1-score를 보이며, 이는 데이터 불균형과 연관될 수 있습니다.</em>
+</p>
+
+---
 
 ### 🧩 Confusion Matrix
 <p align="center">
   <img src="confusion_matrix.png" alt="Confusion Matrix" width="50%">
 </p>
 
+<p align="center">
+  <em>예측값과 실제값 간 혼동 행렬입니다.  
+  모델은 긍정 리뷰를 잘 분류했지만, 일부 부정 리뷰를 긍정으로 잘못 분류한 경우도 관찰됩니다.</em>
+</p>
+
+---
+
 ### 📊 Label Distribution
 <p align="center">
   <img src="label_distribution.png" alt="Label Distribution" width="50%">
 </p>
----
+
+<p align="center">
+  <em>전체 리뷰 중 긍정(1)이 부정(0)보다 훨씬 많은 비율을 차지하고 있어 데이터 불균형 문제가 존재합니다.</em>
+</p>
+
 
 ## 💡 분석 및 한계
 - 전체 테스트 정확도는 **91.53%**로 우수했으나, 불균형 데이터로 인한 F1-score는 클래스 간 차이가 발생할 수 있음
