@@ -11,14 +11,16 @@ MobileBERT 모델을 파인튜닝(fine-tuning)하여 높은 정확도의 감성 
 
 ---
 
-## 📁 데이터 정보 (Dataset)
-- **원본 데이터셋**: GTA5 유저 리뷰 데이터 (CSV, 영어)
-- **총 샘플 수**: 약 30,113개  
-- **라벨 분포**:
-  - 긍정 (1): 약 18,000개  
-  - 부정 (0): 약 12,000개  
-- **전처리**: 영어 비율 필터링, 특수문자 제거, 최소 길이 제한  
-
+## 📁 데이터셋 요약
+- **총 데이터 수**: 약 30,113개
+- **컬럼 구성**:  
+  - `Text`: 유저 리뷰 본문  
+  - `Sentiment`: 감정 라벨 (0=부정, 1=긍정)
+- **전처리**:
+  - 영어 비율 필터링
+  - 특수문자 및 공백 정리
+  - 5자 미만 문장 제거
+  - 학습 데이터 20%로 축소 및 라벨 15% 노이즈 주입
 ---
 
 ## 🧠 사용 모델 (Model)
@@ -26,13 +28,16 @@ MobileBERT 모델을 파인튜닝(fine-tuning)하여 높은 정확도의 감성 
 - **모델 구조**: Transformer 기반 경량 BERT
 - **분류 방식**: 이진 분류 (0=부정, 1=긍정)
 
-### ⚙️ 학습 설정 (Training Config)
-- Epochs: 4
-- Batch size: 8
-- Learning rate: 2e-5
-- Optimizer: AdamW
-- 손실 함수: CrossEntropyLoss (Class Weight 적용)
-- 데이터 분리: Train/Val/Test = 60% / 20% / 20%
+## ⚙️ 학습 설정
+
+| 설정 항목 | 값 |
+|-----------|----|
+| Epochs | 4 |
+| Batch Size | 8 |
+| Optimizer | AdamW |
+| Learning Rate | 2e-5 |
+| 손실 함수 | CrossEntropyLoss (class weight 적용) |
+| 데이터 분할 | Train 60%, Validation 20%, Test 20% |
 
 ---
 
@@ -51,12 +56,21 @@ MobileBERT 모델을 파인튜닝(fine-tuning)하여 높은 정확도의 감성 
 
 ## 📊 시각화 결과 (Visualizations)
 
+
+### 🎯 F1-score per Class
 <p align="center">
-  <img src="classification_metrics_en.png" alt="Classification Report" width="30%" />
-  <img src="confusion_matrix_en.png" alt="Confusion Matrix" width="30%" />
-  <img src="label_distribution_en.png" alt="Label Distribution" width="30%" />
+  <img src="classification_metrics.png" alt="F1 Score per Class" width="65%">
 </p>
 
+### 🧩 Confusion Matrix
+<p align="center">
+  <img src="confusion_matrix.png" alt="Confusion Matrix" width="50%">
+</p>
+
+### 📊 Label Distribution
+<p align="center">
+  <img src="label_distribution.png" alt="Label Distribution" width="50%">
+</p>
 ---
 
 ## 💡 분석 및 한계
