@@ -89,12 +89,10 @@ MobileBERT 모델을 파인튜닝(fine-tuning)하여 높은 정확도의 감성 
 
 ### 📊 Label Distribution
 <p align="center">
-  <img src="label_distribution.png" alt="Label Distribution" width="50%">
+  <img src="review_sentiment_bar.png" alt="Review Sentiment Distribution Bar Chart" width="60%">
 </p>
-
-<p align="center">
-  <em>전체 리뷰 중 긍정(1)이 부정(0)보다 훨씬 많은 비율을 차지했다.</em>
-</p>
+리뷰 데이터에서 긍정(Positive)과 부정(Negative) 감정의 수치를 시각화한 막대 그래프입니다.  
+긍정 리뷰가 전체에서 차지하는 비율이 높음을 알 수 있습니다.
 
 ---
 
